@@ -14,12 +14,13 @@ export class AppController {
       message: this.appService.getHello()
     };
   }
-  @Get()
+  @Get('booking')
   @Render('booking_form')
   showBookingForm() {
     return { errors : []}; 
   }
   @Post('booking')
+  @Render('booking_form')
   handleBookingForm(
     @Body() bookingData: BookingDto,
     @Res() response: Response,
