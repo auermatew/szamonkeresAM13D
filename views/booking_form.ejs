@@ -23,22 +23,22 @@
     <form action="/booking" method="post">
         <div class="mb-3">
             <label for="name" class="form-label">Név</label>
-            <input type="text" class="form-control" id="name" name="name" >
+            <input type="text" class="form-control" id="name" name="name" value="<%= bookingData.name || '' %>" >
         </div>
 
         <div class="mb-3">
             <label for="email" class="form-label">E-mail cím</label>
-            <input type="email" class="form-control" id="email" name="email" >
+            <input type="email" class="form-control" id="email" name="email" value="<%= bookingData.email || '' %>" >
         </div>
 
         <div class="mb-3">
             <label for="date" class="form-label">Dátum és időpont</label>
-            <input type="datetime-local" class="form-control" id="date" name="date" >
+            <input type="datetime-local" class="form-control" id="date" name="date" value="<%= bookingData.date || '' %>">
         </div>
 
         <div class="mb-3">
             <label for="guests" class="form-label">Vendégek száma</label>
-            <input type="number" class="form-control" id="guests" name="guests" >
+            <input type="number" class="form-control" id="guests" name="guests" value="<%= bookingData.guests || 1 %>" >
         </div>
 
         <button type="submit" class="btn btn-primary">Foglalás</button>

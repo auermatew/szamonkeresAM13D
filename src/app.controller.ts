@@ -17,7 +17,7 @@ export class AppController {
   @Get('booking')
   @Render('booking_form')
   showBookingForm() {
-    return { errors: [] };
+    return { errors: [],  bookingData: {} };
   }
   @Post('booking')
   @Render('booking_form')
@@ -47,7 +47,7 @@ export class AppController {
     }
 
     if (errors.length > 0) {
-      response.render('booking_form', { errors: errors });
+      response.render('booking_form', { errors, bookingData });
     } else {
       response.redirect('/success');
     }
