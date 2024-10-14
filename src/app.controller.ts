@@ -11,13 +11,13 @@ export class AppController {
   @Render('index')
   getHello() {
     return {
-      message: this.appService.getHello()
+      message: this.appService.getHello(),
     };
   }
   @Get('booking')
   @Render('booking_form')
   showBookingForm() {
-    return { errors : []}; 
+    return { errors: [] };
   }
   @Post('booking')
   @Render('booking_form')
@@ -26,7 +26,6 @@ export class AppController {
     @Res() response: Response,
   ) {
     const errors = [];
-
 
     if (!bookingData.name || !bookingData.name.trim()) {
       errors.push({ message: 'A név megadása kötelező!' });
@@ -42,7 +41,6 @@ export class AppController {
       errors.push({ message: 'A dátum nem lehet a mai napnál régebbi!' });
     }
 
-
     const guests = parseInt(bookingData.guests, 10);
     if (isNaN(guests) || guests < 1 || guests > 10) {
       errors.push({ message: 'A vendégek száma 1 és 10 között kell legyen!' });
@@ -53,5 +51,12 @@ export class AppController {
     } else {
       response.redirect('/success');
     }
+  }
+  @Get('success')
+  @Render('success')
+  showSuccessPage() {
+    return {
+      message: 'A foglalás sikeres volt!',
+    };
   }
 }
